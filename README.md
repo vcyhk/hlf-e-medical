@@ -31,6 +31,8 @@ cd fabric-samples/fabcar
 ./startFabric.sh javascript
 ```
 
+For detailed information about setting up the hyperledger fabric network see [Hyperledger Fabric Docs](https://hyperledger-fabric.readthedocs.io/en/latest/)
+
 ## E-medical system
 1. enrollAdmin
 
