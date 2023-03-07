@@ -23,60 +23,48 @@ git clone https://github.com/hyperledger/fabric-samples
 git clone https://github.com/vcyhk/hlf-e-medical.git
 ```
 
-3. Copy and clone the original fabcar chaincode and the script to new files.  
+3. Copy and clone the original fabcar chaincode and the script to new files  
 `fabcar.js`  
 `run.sh`  
 
-4. Bring up the test network
+4. Bring up the test network and enroll the admin  
 ```
-cd fabric-samples/fabcar
-./startFabric.sh javascript
+/fabric-samples
+cd fabcar
+./run.sh
 ```
 
 For detailed information about setting up the hyperledger fabric network see [Hyperledger Fabric Docs](https://hyperledger-fabric.readthedocs.io/en/latest/)
 
 ## API Server
 
-This API Serve used to interact with chaincode
+This API Server used to interact with chaincode
 
 1. Copy the `app.js` into `hlf-e-medical/fabric-samples/fabcar/javascript/`
 2. Running the code to start the server
 ```
+/fabric-samples
+cd fabcar/javascript
 node app.js
 ```
 
 ## E-medical system
-1. enrollAdmin
+1. Move the e-medical folder into `fabric-samples` 
 
-   You need to enroll a admin before running the following function 
+2. Run Go program to connect the MongoDB (Used to store basic login data of the users)
+```
+/fabric-samples
+cd e-medical
+go run main.go
+```
 
-2. registerPatient
+3. Run the following command to install the packages and start the webapp.
+```
+/fabric-samples/e-medical
+cd webapp
+npm install
+npm start
+```
 
-   This function used to create an idendity and initialize the record to the patient
-   
-3. registerDoctor
-
-   This function used to create an idendity to the doctor
-   
-4. registerNurse
-
-   This function used to create an idendity to the nurse
-   
-5. permitDoc
-
-   Paitent can use this function to authorize the doctor to check or update their medical record
-   
-6. permitNur
-
-   Paitent can use this function to authorize the nurese to check their medical record
-   
-7. query
-
-   This function used to check the patient medical record
-   
-8. update
-
-   Doctor can use this function to update patient's medical record
-   
 ## Benchmarking (Hyperledger Caliper)
 ...
