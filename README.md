@@ -67,4 +67,6 @@ npm start
 ```
 
 ## Benchmarking (Hyperledger Caliper)
-...
+For benchmarking, we use Caliper API to simulate the workload and function of hlf-e-medical system  
+
+
