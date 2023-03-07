@@ -39,7 +39,11 @@ For detailed information about setting up the hyperledger fabric network see [Hy
 
 This API Serve used to interact with chaincode
 
-1. Copy the `app.js` to
+1. Copy the `app.js` into `hlf-e-medical/fabric-samples/fabcar/javascript/`
+2. Running the code to start the server
+```
+node app.js
+```
 
 ## E-medical system
 1. enrollAdmin
