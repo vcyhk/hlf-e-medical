@@ -23,7 +23,7 @@ git clone https://github.com/hyperledger/fabric-samples
 git clone https://github.com/vcyhk/hlf-e-medical.git
 ```
 
-3. Copy and clone the original fabcar chaincode and the script to new files.
+3. Copy and clone the original fabcar chaincode and the script to new files.  
 fabcar.js  
 run.sh  
 
