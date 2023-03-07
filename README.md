@@ -23,7 +23,7 @@ git clone https://github.com/hyperledger/fabric-samples
 git clone https://github.com/vcyhk/hlf-e-medical.git
 ```
 
-3. Replace the fabcar chaincode and the script
+3. Replace the original fabcar chaincode and the script to new files.
 
 4. Bring up the test network
 ```
