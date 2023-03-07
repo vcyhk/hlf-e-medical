@@ -23,7 +23,9 @@ git clone https://github.com/hyperledger/fabric-samples
 git clone https://github.com/vcyhk/hlf-e-medical.git
 ```
 
-3. Replace the original fabcar chaincode and the script to new files.
+3. Copy and clone the original fabcar chaincode and the script to new files.
+fabcar.js
+run.sh
 
 4. Bring up the test network
 ```
@@ -32,6 +34,12 @@ cd fabric-samples/fabcar
 ```
 
 For detailed information about setting up the hyperledger fabric network see [Hyperledger Fabric Docs](https://hyperledger-fabric.readthedocs.io/en/latest/)
+
+## API Server
+
+This API Serve used to interact with chaincode
+
+1. Copy the `app.js` to
 
 ## E-medical system
 1. enrollAdmin
@@ -67,58 +75,4 @@ For detailed information about setting up the hyperledger fabric network see [Hy
    Doctor can use this function to update patient's medical record
    
 ## Benchmarking (Hyperledger Caliper)
-1. Change to caliper-workspace
-```
-cd caliper-workspace
-```
-2. Set project details
-```
-npm init
-```
-3. Install the Caliper CLI
-```
-npm install --only=prod @hyperledger/caliper-cli@0.4.2
-```
-4. Bind the CLI
-```
-npx caliper bind --caliper-bind-sut fabric:2.2
-```
-5. Network Configuration Edit networkConfig.json (private key can find in the path and tlsCACerts can find in connection-org1.json / connection-org2.json)
-```
-"clientPrivateKey": {
-  "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/YourPrivateKey"
-   },
-"clientSignedCert": {
-  "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/cert.pem"
-}
-
-"peers": {
-        "peer0.org1.example.com": {
-            "url": "grpcs://localhost:7051",
-            "tlsCACerts": {
-                "pem": "CERT"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.org1.example.com",
-                "hostnameOverride": "peer0.org1.example.com"
-            }
-        },
-        "peer0.org2.example.com": {
-            "url": "grpcs://localhost:9051",
-            "tlsCACerts": {
-                "pem": "CERT"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.org2.example.com",
-                "hostnameOverride": "peer0.org2.example.com"
-            }
-        }
-    }
-```
-
-6. Launching the manager process
-```
-npx caliper launch manager --caliper-workspace ./ --caliper-networkconfig networks/networkConfig.json --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled --caliper-fabric-gateway-discovery
-```
-
-7. Config
+...
