@@ -3,7 +3,7 @@ import ActionBar from '../components/ActionBar';
 import axios from 'axios';
 import AppContext from '../context';
 import {useTranslation} from 'react-i18next'
-import Collapsible from 'react-collapsible';
+
 
 const Information = () => {
     const { t } = useTranslation('common');

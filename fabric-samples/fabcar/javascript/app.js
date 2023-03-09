@@ -172,7 +172,7 @@ app.put('/permitDoc', async (req, res) => {
     }
 
     const gateway = new Gateway();
-    await gateway.connect(ccp, { wallet, identity: 'doctor_1', discovery: { enabled: true, asLocalhost: true } });
+    await gateway.connect(ccp, { wallet, identity: req.body.patient, discovery: { enabled: true, asLocalhost: true } });
     const network = await gateway.getNetwork('mychannel');
     const contract = network.getContract('fabcar');
     

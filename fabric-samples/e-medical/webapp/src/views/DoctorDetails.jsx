@@ -15,11 +15,11 @@ function DoctorDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const [patData, setPatData] = useState(null);
   const [medId, setMEDID] = useState(false)
   const [connect, setConnect] = useState(false);
   const [checkAdd, setCheckAdd] = useState(false);
   const [dAdd, setdAdd] = useState('');
+  const [pAdd, setpAdd] = useState('');
 
   
 
@@ -53,7 +53,6 @@ function DoctorDetails() {
         if (res.data.error) {
           setError(res.data.error);
         } else {
-          setPatData(res.data);
           setMEDID(res.data.medid)
         }
         setLoading(false);
@@ -69,7 +68,7 @@ function DoctorDetails() {
     axios.get('http://localhost:3001/medRecsKey'+ medId).then(res => {
           setLoading(false)
           if (res.data.status) {
-              console.log(res.data.medRec)
+              setpAdd(res.data.medRec.patientID)
           } else {
               setError(res.data.error)
           }
@@ -88,16 +87,16 @@ function DoctorDetails() {
 
   
   const handleRegister = async(e) => {
-
     axios.put('http://localhost:3001/permitDoc', {
           doctor: dAdd,
+          patient: pAdd,
           medid: medId
         }).then(res => {
           setLoading(false)
             if (res.data.status) {
               console.log(res.data.message);
             } else {
-              setError(res.data.error)
+              console.log(res.data.error)
             }
         }).catch(err => {
             console.log(err);

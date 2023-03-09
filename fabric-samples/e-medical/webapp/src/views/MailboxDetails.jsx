@@ -92,7 +92,24 @@ function MailboxDetails() {
 
     const [records,setRecords]=useState([]);
     async function getRecord(){
-
+        axios.get('http://localhost:3001/medRecsKey'+ medid).then(res => {
+          setLoading(false)
+          if (res.data.status) {
+              console.log(res.data.medRec)
+          } else {
+              setError(res.data.error)
+          }
+        }).catch(err => {
+            console.log(err);
+            setLoading(false)
+        });
+        // const arrL = (response.medicalRecord).length;
+        // setRecords(response.medicalRecord);
+        // for(let i=0; i<arrL; i++){
+        //     let nObj = {pCode:i,pDate:(records[i].datetime),pInfo:(records[i].info)}
+        //     let arr = records.concat(nObj);
+        //     setRecords(arr);
+        // };
     }
 
     async function getDateTime(){
@@ -109,7 +126,7 @@ function MailboxDetails() {
             e.preventDefault();
             setSubmiting(true);
 
-            axios.put('http://localhost:3001/changeRecord', {
+            axios.put('http://192.168.2.33:3001/changeRecord', {
                 key: medid,
                 dt: dateTime,
                 info: note
