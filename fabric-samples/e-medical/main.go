@@ -19,7 +19,7 @@ func main() {
 	// mongodb uri
 	// example:
 	// mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
-	uri := "mongodb+srv://admin:admin@cluster0.e75lx8x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+	uri := "mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority"
 
 	// create mongo client
 	client, err := mongo.NewClient(options.Client().ApplyURI(uri))
