@@ -51,14 +51,34 @@ node app.js
 ## E-medical system
 1. Move the e-medical folder into `fabric-samples` 
 
-2. Run Go program to connect the MongoDB (Used to store basic login data of the users)
+2. Setup MongoDB Atlas 
+For detailed information about setting up [MongoDB Atlas Database](https://www.mongodb.com/docs/atlas/getting-started/)
+
+3. Create Database and collections   
+**Database Name:**  
+emedical   
+**Collections Name:**  
+appointments  
+departments  
+hospitals 
+mailboxes  
+medical_histories  
+rewards  
+users  
+
+4. Change `main.go` URL
+```
+mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
+```
+
+5. Run Go program to connect the MongoDB (Used to store basic login data of the users)
 ```
 /fabric-samples
 cd e-medical
 go run main.go
 ```
 
-3. Run the following command to install the packages and start the webapp.
+4. Run the following command to install the packages and start the webapp.
 ```
 /fabric-samples/e-medical
 cd webapp
